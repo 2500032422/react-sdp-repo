@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 const CustomerLogin = () => {
@@ -6,6 +7,7 @@ const CustomerLogin = () => {
     username: '',
     password: '',
   });
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,8 +27,16 @@ const CustomerLogin = () => {
     );
     
     if (customer) {
+      // Store customer information in sessionStorage
+      sessionStorage.setItem('isCustomer', 'true');
+      sessionStorage.setItem('customerData', JSON.stringify(customer));
+      
       alert(`Login successful! Welcome, ${customer.fullName}!`);
       console.log('Login successful:', customer);
+      
+      // Navigate to customer home page
+      navigate('/customer/home');
+      window.location.reload();
     } else {
       alert('Invalid username or password. Please try again.');
       console.log('Login failed: Invalid credentials');
