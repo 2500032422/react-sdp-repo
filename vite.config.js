@@ -1,8 +1,12 @@
 import { defineConfig } from 'vite'
-import tailwindcss from '@vitejs/plugin-react'
-//https:
+import react from '@vitejs/plugin-react' // Ensure this line is present
+
+// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [ react()],
-  base:"react-sdp-repo" // repo name
-  
+  plugins: [react()], // Ensure this is called as a function
+  base : 
+'react-sdp-repo',
+
+
 })
+
