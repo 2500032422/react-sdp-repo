@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
-import tailwindcss from '@tailwindcss/vite'
-
+import tailwindcss from '@vitejs/plugin-react'
+//https:
 export default defineConfig({
-  plugins: [
-    tailwindcss(),
-  ],
+  plugins: [ react()],
+  base:"react-sdp-repo" // repo name
+  
 })
